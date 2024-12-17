@@ -43,7 +43,7 @@ const BlogsContainer = () => {
         <div className="flex items-center gap-x-2">
           <p className="">Hot tags:</p>
           <ul className="flex items-center gap-x-2">
-            {tags?.map((item: Blog, i: number) => (
+            {tags?.map((item: any, i: number) => (
               <li key={i} className="text-sm">
                 <Link href={`/blogs?tag=${item?._id}`}>#{item?._id}</Link>
               </li>
