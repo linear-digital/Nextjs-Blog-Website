@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios from "axios";
 
-const URL = "https://blogsite-backend-one.vercel.app/api/v1";
+const URL = "http://localhost:4000/api/v1";
 
 const api = axios.create({
-  baseURL: "https://blogsite-backend-one.vercel.app/api/v1",
+  baseURL: "http://localhost:4000/api/v1",
 });
 
 export const fetcher = async ({
@@ -17,7 +17,7 @@ export const fetcher = async ({
   headers?: any;
   body?: any;
   method?: "GET" | "POST" | "PUT" | "DELETE";
-}) => {
+}): Promise<any> => {
   try {
     const response = await fetch(URL + url, {
       method,
