@@ -1,10 +1,16 @@
-
+'use client'
 
 import Navbar from "../Navbar";
+import React from "react";
+import jsonImag from "@/assets/hero-area.json";
+import lottieProvider from "@/tools/lottieProvider";
+import dynamic from "next/dynamic";
+
+const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
 
 export default function HeroArea() {
   return (
-    <div className="bg-black">
+    <div className="bg-black h-screen">
       <Navbar />
       <div className="relative isolate px-6 pt-14 lg:px-8">
         <div
@@ -19,31 +25,34 @@ export default function HeroArea() {
             className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
           />
         </div>
-        <div className="mx-auto container py-32 sm:py-48 lg:py-56">
-          <div className="sm:flex  lg:justify-start">
-            <div className="relative rounded-full py-1 text-lg pb-5 text-white ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-            Hello, I’m Hazrat Ali
+        <div className="mx-auto container flex justify-between items-center h-screen lg:flex-row flex-col-reverse">
+          <div className="min-w-[55%]">
+            <div className="text-start max-w-2xl">
+              <h1 className="text-[40px] text-balance font-semibold tracking-tight text-white lg:text-5xl">
+                Hello, I’m Hazrat Ali <br /> Welcome to my blog
+              </h1>
+              <p className="mt-8 text-pretty text-lg font-medium text-gray-200 sm:text-xl/8">
+                Dont miss out on the latest news about Travel tips, Web Design
+                And Development Related Blogs
+              </p>
+              <div className="mt-10 flex items-center justify-start gap-x-6">
+                <a
+                  href="#"
+                  className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                  Get started
+                </a>
+                <a href="#" className="text-sm/6 font-semibold text-gray-100">
+                  Learn more <span aria-hidden="true">→</span>
+                </a>
+              </div>
             </div>
           </div>
-          <div className="text-start max-w-2xl">
-            <h1 className="text-balance text-5xl font-semibold tracking-tight text-white sm:text-7xl">
-            Welcome to my blog
-            </h1>
-            <p className="mt-8 text-pretty text-lg font-medium text-gray-200 sm:text-xl/8">
-            Dont miss out on the latest news about Travel tips, Web Design And Development Related Blogs
-            </p>
-            <div className="mt-10 flex items-center justify-start gap-x-6">
-              <a
-                href="#"
-                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Get started
-              </a>
-              <a href="#" className="text-sm/6 font-semibold text-gray-100">
-                Learn more <span aria-hidden="true">→</span>
-              </a>
-            </div>
-          </div>
+          <Lottie
+            options={lottieProvider(jsonImag)}
+            height={"auto"}
+            width={"100%"}
+          />
         </div>
         <div
           aria-hidden="true"

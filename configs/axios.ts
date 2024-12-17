@@ -9,14 +9,14 @@ const api = axios.create({
 
 export const fetcher = async ({
   url,
-  method = "Get",
+  method = "GET",
   headers,
   body,
 }: {
   url: string;
-  headers: any;
-  body: any;
-  method: "Get" | "Post" | "Put" | "Delete";
+  headers?: any;
+  body?: any;
+  method?: "GET" | "POST" | "PUT" | "DELETE";
 }) => {
   try {
     const response = await fetch(URL + url, {
