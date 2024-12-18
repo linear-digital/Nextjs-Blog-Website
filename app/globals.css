@@ -23,3 +23,7 @@ body {
 .container {
   max-width: 1200px;
 }
+
+.blog-container {
+  color: white !important;
+}

@@ -31,13 +31,12 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50 container mx-auto">
+    <header className="z-50 container mx-auto">
       <nav
-        aria-label="Global"
         className="flex items-center justify-between p-6"
       >
         <div className="flex lg:flex-1">
-          <Link href="#" className="-m-1.5 p-1.5">
+          <Link href="/" className="-m-1.5 p-1.5">
             <h2 className="text-2xl font-semibold">Hazrat Ali Blog</h2>
           </Link>
         </div>
@@ -66,13 +65,13 @@ const Navbar = () => {
                 {item.name}
               </Dropdown>
             ) : (
-              <a
+              <Link
                 key={item.name}
                 href={item.href}
                 className="text-sm/6 font-semibold text-white"
               >
                 {item.name}
-              </a>
+              </Link>
             );
           })}
         </div>

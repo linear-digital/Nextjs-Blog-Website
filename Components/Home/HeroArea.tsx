@@ -8,7 +8,7 @@ export default function HeroArea() {
   return (
     <div className="bg-[#1E1743] h-[90vh]">
       <Navbar />
-      <div className="relative isolate px-6 pt-14 lg:px-8">
+      <div className="relative  px-6 pt-14 lg:px-8">
         <div
           aria-hidden="true"
           className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"

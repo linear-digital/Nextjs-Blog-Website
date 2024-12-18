@@ -2,6 +2,7 @@ import { User } from "./user"
 
 export type Blog = {
     _id: string,
+    content: string,
     user: User,
     title: string,
     desc: string,
