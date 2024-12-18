@@ -4,12 +4,27 @@ import { useState } from "react";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
-
+import Link from "next/link";
+import { Dropdown } from "antd";
 const navigation = [
-  { name: "Product", href: "#" },
-  { name: "Features", href: "#" },
-  { name: "Marketplace", href: "#" },
-  { name: "Company", href: "#" },
+  { name: "Home", href: "/" },
+  { name: "Travel", href: "/blogs/travel" },
+  {
+    name: "Category",
+    href: "#",
+    children: [
+      {
+        name: "Travel",
+        path: "/blogs/travel",
+      },
+      {
+        name: "Web Development",
+        path: "/blogs/web-development",
+      },
+    ],
+  },
+  { name: "Review", href: "/blogs/review" },
+  { name: "Blog", href: "/blogs" },
 ];
 
 const Navbar = () => {
@@ -22,16 +37,9 @@ const Navbar = () => {
         className="flex items-center justify-between p-6"
       >
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
-            <Image
-              alt=""
-              height={32}
-              width={32}
-              src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=600"
-              className="h-8 w-auto"
-            />
-          </a>
+          <Link href="#" className="-m-1.5 p-1.5">
+            <h2 className="text-2xl font-semibold">Hazrat Ali Blog</h2>
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -44,15 +52,29 @@ const Navbar = () => {
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
-          {navigation.map((item) => (
-            <a
+          {navigation.map((item) => {
+            return item.children ? (
+              <Dropdown
               key={item.name}
-              href={item.href}
-              className="text-sm/6 font-semibold text-white"
-            >
-              {item.name}
-            </a>
-          ))}
+                menu={{
+                  items: item.children.map((child) => ({
+                    label: <Link className="font-semibold" href={child.path}>{child.name}</Link>,
+                    key: child.name,
+                  })) || [],
+                }}
+              >
+                {item.name}
+              </Dropdown>
+            ) : (
+              <a
+                key={item.name}
+                href={item.href}
+                className="text-sm/6 font-semibold text-white"
+              >
+                {item.name}
+              </a>
+            );
+          })}
         </div>
         <div className="hidden lg:flex gap-4 lg:flex-1 lg:justify-end">
           <a href="#" className="text-sm/6 font-semibold text-white">
